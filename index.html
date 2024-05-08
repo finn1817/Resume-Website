@@ -4,44 +4,76 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dan Finn's Resume</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
             background-color: #f4f4f4;
             color: #333;
-            text-align: left; /* Align text to the left */
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
         }
-        header, footer {
-            background-color: #007BFF;
+        header {
+            background-color: #0056b3;
             color: white;
-            padding: 10px 20px;
+            padding: 20px 40px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
         }
         main {
-            padding: 20px;
+            width: 80%;
+            max-width: 800px;
+            text-align: center;
+            padding-top: 20px;
         }
         section {
-            margin-bottom: 20px; /* Add space between sections */
+            background: white;
+            margin: 20px 0;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            border-radius: 8px;
         }
         h1, h2, h3 {
-            margin-top: 0; /* Remove default margins for headings */
-        }
-        h2 {
-            color: #007BFF; /* Highlight section headings */
+            margin: 10px 0;
         }
         ul {
-            padding-left: 20px; /* Indent unordered lists */
+            list-style: none;
+            padding: 0;
         }
-        footer {
-            text-align: center;
+        li {
+            padding: 5px 0;
+        }
+        .back-to-home {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            padding: 10px 20px;
+            background-color: #4caf50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        .back-to-home:hover {
+            background-color: #45a049;
+            color: white;
         }
     </style>
 </head>
 <body>
+    <!-- Back to Home link -->
+    <a href="https://finn1817.github.io/DanFinn/" class="back-to-home">Click this to see my main website!</a>
+
     <header>
-        <h1>Dan Finn</h1>
-        <p>Computer Science Student</p>
+        <h1>Dan Finn - Resume Website</h1>
+        <p>Computer Science Student at SUNY Fredonia, NY</p>
     </header>
     <main>
         <section>
@@ -58,7 +90,6 @@
         <section>
             <h2>IT Experience</h2>
             <h3>AV Club - Bishop Timon St. Jude</h3>
-            <p></p>
             <ul>
                 <li>Assisted in the development of a new mobile application using React Native</li>
                 <li>Participated in daily stand-up meetings and code reviews</li>
@@ -85,7 +116,6 @@
     </main>
     <footer>
         <p>&copy; 2024 Dan Finn | All rights reserved</p>
-        <p></p>
         <p>Thank you for visiting my Website!</p>
     </footer>
 </body>
