@@ -71,7 +71,20 @@
             padding: 10px; /* adds spacing */
             background-color: #f4f4f4; /* matches background */
         }
-        
+
+        /* Popup styling */
+        .popup {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            z-index: 1000;
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -136,9 +149,9 @@
             <h2>Contact Me</h2>
             <p>If you'd like to get in touch with me, fill out the form below:</p>
 
-            <form action="https://formsubmit.co/6d2bf652033ec29fe79410080347eb8" method="POST">
+            <form id="contactForm" action="https://formsubmit.co/6d2bf652033ec29fe79410080347eb8" method="POST">
                 <input type="hidden" name="_subject" value="New contact request from your website">
-        
+
                 <label for="name">Your Name:</label>
                 <input type="text" id="name" name="name" required>
 
@@ -151,11 +164,48 @@
 
                 <button type="submit">Reach Out to Me Here!</button>
             </form>
+
+            <div class="popup" id="popup"></div>
         </section>
     </main>
     <footer>
         <p>&copy; 2025 Dan Finn &copy;</p>
         <p>Thank you for visiting my website!</p>
     </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const form = document.getElementById("contactForm");
+            const popup = document.getElementById("popup");
+
+            if (localStorage.getItem("formSubmitted") === "true") {
+                disableForm();
+            }
+
+            function disableForm() {
+                const submitButton = form.querySelector("button[type='submit']");
+                submitButton.disabled = true;
+                showPopup("Message already sent. You can only submit once!");
+            }
+
+            function showPopup(message) {
+                popup.innerText = message;
+                popup.style.display = "block";
+                setTimeout(() => {
+                    popup.style.display = "none";
+                }, 3000);
+            }
+
+            form.addEventListener("submit", function(e) {
+                if (!localStorage.getItem("formSubmitted")) {
+                    localStorage.setItem("formSubmitted", "true");
+                    showPopup("Message sent! Thank you.");
+                } else {
+                    e.preventDefault();
+                    showPopup("Message already sent. You can only submit once!");
+                }
+            });
+        });
+    </script>
 </body>
 </html>
